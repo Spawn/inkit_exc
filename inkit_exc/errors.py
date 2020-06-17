@@ -91,6 +91,15 @@ class AlreadyExistsError(CustomHTTPError):
     help_url = ''
 
 
+class InvalidFileTypeError(CustomHTTPError):
+    status = '422 Unprocessable Entity'
+    code = 422
+    title = 'Invalid file type'
+    code_name = 'INVALID FILE TYPE'
+    default_detail = ''
+    help_url = ''
+
+
 class InvalidParamWarning:
     title = 'Invalid URL Parameter'
     help_url = ''
