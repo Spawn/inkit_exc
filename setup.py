@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="inkit_exc",
-    version="0.0.1",
+    version="0.0.2",
     author="Bohdan Vodopian",
     author_email="inkit@bohdan.com",
     description="Package for standardising HTTP errors for Inkit",
