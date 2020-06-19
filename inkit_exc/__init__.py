@@ -19,9 +19,14 @@ class CustomHTTPError(ErrClass):
     headers = None
     response = None
 
-    def __init__(self, status=None, errors=None, detail=None, meta=None):
+    def __init__(self, **kwargs):
 
-        self.code = self.code or status
+        errors = None
+        meta = None
+        detail = None
+
+        [setattr(self, k, v) for k, v in kwargs.items() if hasattr(self, k)]
+
         self.errors = errors or [{
             'meta': meta or {},
             'detail': detail or self.default_detail
