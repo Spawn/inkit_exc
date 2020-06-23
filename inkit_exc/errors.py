@@ -195,6 +195,16 @@ class MissingObjectIDError(CustomHTTPError):
     help_url = '',
 
 
+class NoActiveSubscriptionError(CustomHTTPError):
+
+    status = '403 Forbidden',
+    code = 403,
+    title = 'No Subscription',
+    description = 'account has no active subscription',
+    code_name = 'NO_SUBSCRIPTION',
+    help_url = '',
+
+
 class InvalidParamWarning:
     title = 'Invalid URL Parameter'
     help_url = ''
