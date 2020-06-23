@@ -1,3 +1,5 @@
+import json
+
 try:
     from falcon import HTTPError as ErrClass
     framework = 'falcon'
@@ -21,14 +23,13 @@ class CustomHTTPError(ErrClass):
 
     def __init__(self, **kwargs):
 
-        errors = None
-        meta = None
-        detail = None
+        errors = kwargs.get('errors')
+        detail = kwargs.get('detail')
 
         [setattr(self, k, v) for k, v in kwargs.items() if hasattr(self, k)]
 
         self.errors = errors or [{
-            'meta': meta or {},
+            'meta': None,
             'detail': detail or self.default_detail
         }]
 
@@ -42,12 +43,10 @@ class CustomHTTPError(ErrClass):
             if self.help_url:
                 self.errors[i]['help_url'] = self.help_url
             if 'meta' not in self.errors[i]:
-                self.errors[i]['meta'] = {}
+                self.errors[i]['meta'] = None
         if framework == 'flask':
-            self.response = jsonify({'errors': self.errors})
+            self.response = jsonify(self.errors)
             self.response.status_code = self.code
 
-    def to_dict(self, obj_type=dict):
-        res = obj_type()
-        res['errors'] = self.errors
-        return res
+    def to_json(self):
+        return json.dumps(self.errors)
