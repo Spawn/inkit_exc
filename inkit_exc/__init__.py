@@ -29,7 +29,7 @@ class CustomHTTPError(ErrClass):
         [setattr(self, k, v) for k, v in kwargs.items() if hasattr(self, k)]
 
         self.errors = errors or [{
-            'meta': None,
+            'meta': kwargs.get('meta'),
             'detail': detail or self.default_detail
         }]
 

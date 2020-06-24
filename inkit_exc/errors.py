@@ -147,62 +147,92 @@ class UserDeactivatedError(CustomHTTPError):
 
 class PlaidError(CustomHTTPError):
 
-    status = '500 Internal Server Error',
-    code = 500,
-    title = 'Internal Server Error',
-    description = 'plaid operation failed',
-    code_name = 'SERVER_ERROR',
-    help_url = '',
+    status = '500 Internal Server Error'
+    code = 500
+    title = 'Internal Server Error'
+    description = 'plaid operation failed'
+    code_name = 'SERVER_ERROR'
+    help_url = ''
 
 
 class PlaidLinkUpdateRequiredError(CustomHTTPError):
 
-    status = '400 Bad Request',
-    code = 400,
-    title = 'Link Update Required',
-    description = '',
-    code_name = 'LINK_UPDATE_REQUIRED',
-    help_url = '',
+    status = '400 Bad Request'
+    code = 400
+    title = 'Link Update Required'
+    description = ''
+    code_name = 'LINK_UPDATE_REQUIRED'
+    help_url = ''
 
 
 class StripeCardError(CustomHTTPError):
 
-    status = '402 Payment Required',
-    code = 402,
-    title = 'Stripe Card Error',
-    description = '',
-    code_name = 'STRIPE_ERROR',
-    help_url = '',
+    status = '402 Payment Required'
+    code = 402
+    title = 'Stripe Card Error'
+    description = ''
+    code_name = 'STRIPE_ERROR'
+    help_url = ''
 
 
 class StripeGenericError(CustomHTTPError):
 
-    status = '402 Payment Required',
-    code = 402,
-    title = '',
-    description = '',
-    code_name = 'STRIPE_ERROR',
-    help_url = '',
+    status = '402 Payment Required'
+    code = 402
+    title = ''
+    description = ''
+    code_name = 'STRIPE_ERROR'
+    help_url = ''
 
 
 class MissingObjectIDError(CustomHTTPError):
 
-    status = '400 Bad Request',
-    code = 400,
-    title = '',
-    description = '',
-    code_name = 'MISSING_OBJECT_ID',
-    help_url = '',
+    status = '400 Bad Request'
+    code = 400
+    title = ''
+    description = ''
+    code_name = 'MISSING_OBJECT_ID'
+    help_url = ''
 
 
 class NoActiveSubscriptionError(CustomHTTPError):
 
-    status = '403 Forbidden',
-    code = 403,
-    title = 'No Subscription',
-    description = 'account has no active subscription',
-    code_name = 'NO_SUBSCRIPTION',
-    help_url = '',
+    status = '403 Forbidden'
+    code = 403
+    title = 'No Subscription'
+    description = 'account has no active subscription'
+    code_name = 'NO_SUBSCRIPTION'
+    help_url = ''
+
+
+class BadRequestError(CustomHTTPError):
+
+    status = '400 Bad Request'
+    code = 400
+    title = 'Bad Request'
+    description = ''
+    code_name = 'BAD_REQUEST'
+    help_url = ''
+
+
+class MediaTypeError(CustomHTTPError):
+
+    status = '415 Unsupported Media Type'
+    code = 415
+    title = 'Unsupported Media Type'
+    description = ''
+    code_name = 'MEDIA_TYPE_ERROR'
+    help_url = ''
+
+
+class PaymentRequiredError(CustomHTTPError):
+
+    status = '402 Payment Required'
+    code = 402
+    title = 'Payment Required'
+    description = ''
+    code_name = 'PAYMENT_REQUIRED'
+    help_url = ''
 
 
 class InvalidParamWarning:
