@@ -235,6 +235,16 @@ class PaymentRequiredError(CustomHTTPError):
     help_url = ''
 
 
+class PayloadTooLargeError(CustomHTTPError):
+
+    status = '413 Payload Too Large'
+    code = 413
+    title = 'Payload Too Large'
+    description = ''
+    code_name = 'PAYLOAD_TOO_LARGE'
+    help_url = ''
+
+
 class InvalidParamWarning:
     title = 'Invalid URL Parameter'
     help_url = ''
